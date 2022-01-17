@@ -1,23 +1,33 @@
-import './App.css';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import React from 'react';
+import { connect } from 'react-redux';
+import Drawer from './Drawer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  componentWillReceiveProps(nextProps) {
+    
+  }
+
+  componentWillMount() {
+    
+  }
+
+  render() {
+    // global theme for defining the company colors and font colors 
+    const { theme } = this.props
+    return(<MuiThemeProvider theme={theme}>
+      <Drawer />
+    </MuiThemeProvider>)
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    
+  }};
+
+const mapDispatchToProps = dispatch => ({
+  
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
