@@ -126,8 +126,8 @@ class AccountsList extends Component {
           <Grid md={6} container alignItems="center" justifyContent="center" item> 
             <Card elevation={5}>
                 <Grid md={12} container alignItems="center" justifyContent="center" item>
-                    <Typography className="noAccountsMessage" variant="h2" component="h2">
-                      No accounts to display please contact administrator
+                    <Typography variant="h2" className="noAccountsMessage" >
+                      ERROR: No accounts to display please contact administrator
                     </Typography>
                 </Grid>
             </Card>
