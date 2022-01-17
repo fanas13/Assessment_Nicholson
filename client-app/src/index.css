@@ -19,3 +19,20 @@ code {
 .MuiBox-root { 
   height: 75px;
 }
+
+.MuiCard-root {
+  width: 100%;
+}
+
+.MuiCardHeader-title {
+  color: #921C47 !important;
+  font-weight: bold !important;
+}
+
+.MuiTableCell-head {
+  font-weight: bold !important;
+}
+
+.MuiButton-label { 
+  text-transform: none !important;
+}

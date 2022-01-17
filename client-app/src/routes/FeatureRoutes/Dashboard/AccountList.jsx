@@ -1,3 +1,6 @@
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { styled } from '@material-ui/core/styles';
@@ -50,32 +53,39 @@ class AccountsList extends Component {
     return(
       <Grid item md={12} container spacing={0} alignItems="center" justifyContent="center" direction="column" >
           <Grid md={6} container alignItems="center" justifyContent="center" item style={{ backgroundColor: 'yellow' }}> 
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>Account Number</StyledTableCell>
-                  <StyledTableCell align="right">Account Type</StyledTableCell>
-                  <StyledTableCell align="right">Balance</StyledTableCell>
-                  <StyledTableCell align="right">Action</StyledTableCell>
-                  <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <StyledTableRow key={row.name}>
-                    <StyledTableCell component="th" scope="row">
-                      {row.name}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                    <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                    <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                    <StyledTableCell align="right">{row.protein}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+            <Card elevation={5}>
+              <TableContainer component={Paper}>
+                <CardHeader
+                  title="Account List"
+                />
+                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                  <TableHead>
+                    <TableRow>
+                      <StyledTableCell>Account Number</StyledTableCell>
+                      <StyledTableCell align="left">Account Type</StyledTableCell>
+                      <StyledTableCell align="left">Balance</StyledTableCell>
+                      <StyledTableCell align="left"></StyledTableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((row) => (
+                      <StyledTableRow key={row.name}>
+                        <StyledTableCell scope="row">
+                          {row.name}
+                        </StyledTableCell>
+                        <StyledTableCell align="left">{row.calories}</StyledTableCell>
+                        <StyledTableCell align="left">{row.fat}</StyledTableCell>
+                        <StyledTableCell align="right">
+                          <Button color="primary" variant="contained">
+                            Withdraw
+                          </Button>  
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Card>
           </Grid>
       </Grid> 
 
