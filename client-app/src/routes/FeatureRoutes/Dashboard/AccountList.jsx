@@ -12,6 +12,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ACCOUNTS_LOADED } from '../../../constants/actionsTypes';
+import api_agents from '../../../middleware/api_agent';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   
@@ -41,12 +43,8 @@ const rows = [
 
 
 class AccountsList extends Component {
-  componentWillReceiveProps(nextProps) {
-    
-  }
-
   componentWillMount() {
-    
+    this.props.loadAccounts(api_agents.Accounts.getAllAccounts());
   }
 
   render() {
@@ -88,18 +86,17 @@ class AccountsList extends Component {
             </Card>
           </Grid>
       </Grid> 
-
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    
+    accountsList: state.accounts.accountsList
   }};
 
 const mapDispatchToProps = dispatch => ({
-  
+  loadAccounts: (payload) => dispatch({type: ACCOUNTS_LOADED, payload, skipTracking: true})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountsList);
