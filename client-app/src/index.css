@@ -36,3 +36,10 @@ code {
 .MuiButton-label { 
   text-transform: none !important;
 }
+
+.noAccountsMessage {
+  margin: 50px !important;
+  text-align: center !important;
+  font-weight: bold !important;
+  color: #cccccc;
+}

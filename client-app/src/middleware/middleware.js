@@ -9,8 +9,6 @@ const promiseMiddleware = store => next => action => {
 
       const currentView = store.getState().viewChangeCounter;
       const skipTracking = action.skipTracking;
-
-      debugger
       action.payload.then(
         res => {
           const currentState = store.getState()
@@ -29,7 +27,6 @@ const promiseMiddleware = store => next => action => {
           }
           console.log('ERROR', error);
           action.error = true;
-          debugger
           action.payload = error;
           if (!action.skipTracking) {
             store.dispatch({ type: ASYNC_END, promise: action.payload });
