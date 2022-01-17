@@ -37,27 +37,29 @@ class AccountsList extends Component {
       this.props.loadAccounts(api_agents.Accounts.getAllAccounts());
     }
   }
+
+  processWithdral = (event) => {
+    event.preventDefault();
+    alert("Success")
+  }
   
   renderWithdrawalButton = (balance, accountType) => {
     if(accountType === 'savings') {
       return(
-        <Button color="primary" variant="contained" disabled={balance > 0 ? false : true}>
+        <Button color="primary" onClick={this.processWithdral.bind(this)} variant="contained" disabled={balance > 0 ? false : true}>
           Withdraw
         </Button>  
       )
     } else {
       return (
-        <Button color="primary" variant="contained" disabled={balance > -500 ? false : true}>
+        <Button color="primary" onClick={this.processWithdral.bind(this)} variant="contained" disabled={balance > -500 ? false : true}>
           Withdraw
         </Button>  
       )
     }
-      
   }
 
   render() {
-    let test = this.props.accountsList
-
     // check if its we are getting results as an array and if contains values
     if (typeof this.props.accountsList !== 'undefined' && this.props.accountsList.length > 0) { 
         const accountsList = this.props.accountsList;
