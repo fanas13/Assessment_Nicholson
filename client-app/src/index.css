@@ -43,3 +43,7 @@ code {
   font-weight: bold !important;
   color: #cccccc;
 }
+
+.footerCopy {
+  font-size: 20px !important;
+}

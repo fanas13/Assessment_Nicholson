@@ -59,15 +59,28 @@ class AccountsList extends Component {
     }
   }
 
+  renderTableFooter = (totalBalance) => {
+    return(
+      <TableHead>
+        <TableRow>
+          <StyledTableCell className="footerCopy">Balance</StyledTableCell>
+          <StyledTableCell className="footerCopy" align="left"></StyledTableCell>
+          <StyledTableCell className="footerCopy" align="left">ZAR {totalBalance}</StyledTableCell>
+        </TableRow>
+      </TableHead>
+    )
+  }
+
   render() {
     // check if its we are getting results as an array and if contains values
     if (typeof this.props.accountsList !== 'undefined' && this.props.accountsList.length > 0) { 
+      
         const accountsList = this.props.accountsList;
         const renderAccounts = Object.keys(accountsList).map((key) =>{
           const accountNumber = accountsList[key].account_number;
           const accountType = accountsList[key].account_type;
           const balance = accountsList[key].balance;
-          
+
           return(
             <StyledTableRow key={key}>
               <StyledTableCell scope="row"> {accountNumber} </StyledTableCell>
@@ -100,6 +113,7 @@ class AccountsList extends Component {
                   <TableBody>
                     {renderAccounts}
                   </TableBody>
+                    {this.renderTableFooter(this.props?.accountsList.reduce((a,v) =>  a = a - -v.balance , 0 ))}
                 </Table>
               </TableContainer>
             </Card>
