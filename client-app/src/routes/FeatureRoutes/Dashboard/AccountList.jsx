@@ -30,24 +30,29 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Account Number', 159, 6.0, 24, 4.0),
-  createData('Account Type', 237, 9.0, 37, 4.3),
-  createData('Balance', 262, 16.0, 24, 6.0),
-  createData('Action', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 class AccountsList extends Component {
   componentWillMount() {
     if (!this.props.accountsList) {
       // run getAllAccounts api when accounts list is undefined
       this.props.loadAccounts(api_agents.Accounts.getAllAccounts());
     }
+  }
+  
+  renderWithdrawalButton = (balance, accountType) => {
+    if(accountType === 'savings') {
+      return(
+        <Button color="primary" variant="contained" disabled={balance > 0 ? false : true}>
+          Withdraw
+        </Button>  
+      )
+    } else {
+      return (
+        <Button color="primary" variant="contained" disabled={balance > -500 ? false : true}>
+          Withdraw
+        </Button>  
+      )
+    }
+      
   }
 
   render() {
@@ -67,9 +72,7 @@ class AccountsList extends Component {
               <StyledTableCell align="left">{accountType}</StyledTableCell>
               <StyledTableCell align="left">ZAR {balance}</StyledTableCell>
               <StyledTableCell align="right">
-                <Button color="primary" variant="contained" >
-                  Withdraw
-                </Button>  
+                {this.renderWithdrawalButton(balance, accountType)}
               </StyledTableCell>
             </StyledTableRow>
           )
