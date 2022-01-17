@@ -67,7 +67,7 @@ class AccountsList extends Component {
           const balance = accountsList[key].balance;
           
           return(
-            <StyledTableRow key={accountsList[key]}>
+            <StyledTableRow key={key}>
               <StyledTableCell scope="row"> {accountNumber} </StyledTableCell>
               <StyledTableCell align="left">{accountType}</StyledTableCell>
               <StyledTableCell align="left">ZAR {balance}</StyledTableCell>
