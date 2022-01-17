@@ -1,9 +1,10 @@
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AccountsList from '../../routes/FeatureRoutes/Dashboard/AccountList';
 import Drawer from './Drawer';
 
-class App extends React.Component {
+class App extends Component {
   componentWillReceiveProps(nextProps) {
     
   }
@@ -17,6 +18,7 @@ class App extends React.Component {
     const { theme } = this.props
     return(<MuiThemeProvider theme={theme}>
       <Drawer />
+      <AccountsList />
     </MuiThemeProvider>)
   }
 }
