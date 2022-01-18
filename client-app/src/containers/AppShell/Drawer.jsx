@@ -25,7 +25,8 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-export default function PersistentDrawerLeft() {
+
+export default function PersistentDrawerTop() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />

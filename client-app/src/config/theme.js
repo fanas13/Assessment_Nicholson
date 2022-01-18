@@ -21,5 +21,4 @@ const theme = createTheme({
 });
 
 // Convenience to view composed theme in console
-
 export default theme;

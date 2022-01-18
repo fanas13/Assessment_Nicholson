@@ -12,6 +12,7 @@ const requests = {
     superagent.get(`${API_ROOT}${url}`).then(responseBody),
 };
 
+// get all accounts from  server
 const Accounts = {
   getAllAccounts: page =>
     requests.get(`/accounts`)

@@ -16,10 +16,6 @@ import { connect } from 'react-redux';
 import { ACCOUNTS_LOADED } from '../../../constants/actionsTypes';
 import api_agents from '../../../middleware/api_agent';
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  
-}));
-
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
@@ -63,9 +59,9 @@ class AccountsList extends Component {
     return(
       <TableHead>
         <TableRow>
-          <StyledTableCell className="footerCopy">Balance</StyledTableCell>
-          <StyledTableCell className="footerCopy" align="left"></StyledTableCell>
-          <StyledTableCell className="footerCopy" align="left">ZAR {totalBalance}</StyledTableCell>
+          <TableCell className="footerCopy">Balance</TableCell>
+          <TableCell className="footerCopy" align="left"></TableCell>
+          <TableCell className="footerCopy" align="left">ZAR {totalBalance}</TableCell>
         </TableRow>
       </TableHead>
     )
@@ -75,7 +71,8 @@ class AccountsList extends Component {
     // check if its we are getting results as an array and if contains values
     if (typeof this.props.accountsList !== 'undefined' && this.props.accountsList.length > 0) { 
       
-        const accountsList = this.props.accountsList;
+        
+        const accountsList = this.props.accountsList; // list of accounts from the state
         const renderAccounts = Object.keys(accountsList).map((key) =>{
           const accountNumber = accountsList[key].account_number;
           const accountType = accountsList[key].account_type;
@@ -83,12 +80,12 @@ class AccountsList extends Component {
 
           return(
             <StyledTableRow key={key}>
-              <StyledTableCell scope="row"> {accountNumber} </StyledTableCell>
-              <StyledTableCell align="left">{accountType}</StyledTableCell>
-              <StyledTableCell align="left">ZAR {balance}</StyledTableCell>
-              <StyledTableCell align="right">
+              <TableCell scope="row"> {accountNumber} </TableCell>
+              <TableCell align="left">{accountType}</TableCell>
+              <TableCell align="left">ZAR {balance}</TableCell>
+              <TableCell align="right">
                 {this.renderWithdrawalButton(balance, accountType)}
-              </StyledTableCell>
+              </TableCell>
             </StyledTableRow>
           )
       });
@@ -104,10 +101,10 @@ class AccountsList extends Component {
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                   <TableHead>
                     <TableRow>
-                      <StyledTableCell>Account Number</StyledTableCell>
-                      <StyledTableCell align="left">Account Type</StyledTableCell>
-                      <StyledTableCell align="left">Balance</StyledTableCell>
-                      <StyledTableCell align="left"></StyledTableCell>
+                      <TableCell>Account Number</TableCell>
+                      <TableCell align="left">Account Type</TableCell>
+                      <TableCell align="left">Balance</TableCell>
+                      <TableCell align="left"></TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
