@@ -8,8 +8,8 @@ Welcome to my small assessment front end application. Please note that this repo
 
 
 ```sh
-# download the mock server from this repo [a link](https://github.com/cibfrontend/mock-api-server  )
-run npm install once done run npm start
+# clone the mock server from this repo (https://github.com/cibfrontend/mock-api-server  )
+run npm install once done... run npm start
 
 ```sh
 # Install dependencies inside the client-app directory from the front end application folder
