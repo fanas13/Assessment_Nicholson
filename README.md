@@ -1,11 +1,18 @@
 # IQBusiness-Assessment_Nicholson
 
-Welcome to my IQ Business assessment front end application. Please note that this repo will be public for a short period of time
+Welcome to my small assessment front end application. Please note that this repo will be public for a short period of time
 
 ## Getting started
 
+
+
+
 ```sh
-# Install dependencies inside the client-app directory
+# download the mock server from this repo https://github.com/cibfrontend/mock-api-server  
+run npm install once done run npm start
+
+```sh
+# Install dependencies inside the client-app directory from the front end application folder
 npm install
 
 # or if you're using Yarn
