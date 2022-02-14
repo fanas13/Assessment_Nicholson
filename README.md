@@ -1,6 +1,6 @@
-# IQBusiness-Assessment_Nicholson
+# Assessment_Nicholson
 
-Welcome to my IQ Business assessment front end application. Please note that this repo will be public for a short period of time
+Welcome to my assessment front end application. Please note that this repo will be public for a short period of time
 
 ## Getting started
 
